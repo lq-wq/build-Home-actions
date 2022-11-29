@@ -32,7 +32,7 @@ EOF
 
 #添加插件
 svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 
 
 # 修改 bypass 依赖

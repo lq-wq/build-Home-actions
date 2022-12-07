@@ -29,12 +29,8 @@ uci set system.@system[0].hostname='Long&Quan'                # 修改主机名�
 EOF
 
 #添加插件
-#svn co https://github.com/Cneupa/luci-app-bypass.git package/luci-app-bypass
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 echo 'src-git Packages https://github.com/lq-wq/Packages' >>feeds.conf.default
-
-# 修改 bypass 依赖
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-bypass/Makefile
 
 # 添加主题
 svn co https://github.com/jerrykuku/luci-theme-argon/ package/luci-theme-argon

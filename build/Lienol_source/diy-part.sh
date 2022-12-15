@@ -31,12 +31,7 @@ uci set system.@system[0].hostname='Long&Quan'                # 修改主机名�
 EOF
 
 #添加软件
-svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
-#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 echo 'src-git Packages https://github.com/lq-wq/Packages' >>feeds.conf.default
-
-# 修改 bypass 依赖
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-bypass/Makefile
 
 # 添加主题
 svn co https://github.com/jerrykuku/luci-theme-argon/ package/luci-theme-argon
@@ -51,7 +46,7 @@ sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 sed -i "s/OpenWrt /${Author} compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "${ZZZ_PATH}"
 
 # 修改默认内核（所有机型都适用，只要您编译的机型源码附带了其他内核，请至编译说明的第12条查看）
-#sed -i 's/PATCHVER:=5.10/PATCHVER:=5.4/g' target/linux/x86/Makefile
+sed -i 's/PATCHVER:=5.10/PATCHVER:=5.4/g' target/linux/x86/Makefile
 
 # 取消路由器每天跑分任务
 sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
